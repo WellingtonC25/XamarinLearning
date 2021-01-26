@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloWorld.QuotesPage"
+             Padding="20">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+                   Android="20,30,20,20">
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <StackLayout>
+        <Button Clicked="Button_Clicked"
+                Text="Next"></Button>
+        
+        <Label Text="{Binding Source={x:Reference silder},
+            Path = Value,
+            StringFormat='Text Size : {0:F0}'} "/>
+        
+        <Slider Maximum="50" 
+                Minimum="16"
+                x:Name="silder"/>
+
+        <Label
+             x:Name="labelText"
+             FontSize="{Binding Source={x:Reference silder}, 
+            Path= Value}"  />
+        
+    </StackLayout>
+</ContentPage>
